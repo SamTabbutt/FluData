@@ -12,6 +12,7 @@
 import numpy as np
 import pandas as pd
 from geopy.geocoders import Nominatim
+import googlemaps
 import os
 import sys
 
@@ -37,6 +38,8 @@ Nation_first_city_name = sys.argv[2]
 locationFrames = []
 #Initialize first layer as 'Nation'
 Layer_set = 'Nation'
+if file_name == 'World':
+    Layer_set = 'State'
 
 #For each column in fluData:
 for (i,col) in enumerate(fluData.columns):
@@ -54,9 +57,7 @@ for (i,col) in enumerate(fluData.columns):
     locator = Nominatim(user_agent="myGeocoder")
     location = locator.geocode(col)
     #Auto-update layer label
-    if i == 0:
-        Layer_set = 'Nation'
-    if i == 1:
+    if i == 1 and file_name!='World':
         Layer_set = 'State'
     if 'HHS' in col:
         Layer_set = 'Region'
