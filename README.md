@@ -26,6 +26,11 @@ Parameters:
    
    IF param [2] == 'Global': first layer is labeled 'Global' and every other layer is labeled 'Nation'
    
+Example:
+
+      python DataScrape.py US Anchorage
+ Will create two structured .csv files including location longitude and latitude
+   
 ### DataVis
 
 DataVis: to visualize a 2-d-spatial/temporal map of Google Flu Trends
@@ -48,29 +53,28 @@ Parameters:
 
    [1]: Names of files to pull from <working_dir>/refined_data
    
-       If intended to compile from multiple files: <name_1>/<name_2>
+   If intended to compile from multiple files: <name_1>/<name_2>
        
-       If intended to pull from one file: <name>
+   If intended to pull from one file: <name>
        
    [2]: Boolean for save/display. 
    
-       If intending to save animation: T
+   If intending to save animation: T
        
-       If intending to show animation: F
+   If intending to show animation: F
        
    Example calls from terminal: 
    
        python DataVis.py US/World/Australia F
        
-           Will gather data compiled from 'US', 'World', and 'Australia' and show the plot
+   Will gather data compiled from 'US', 'World', and 'Australia' and show the plot
            
        python DataVis.py US T
        
-           Will gather data compiled from 'US', andsave the animation as .mp4
+   Will gather data compiled from 'US', andsave the animation as .mp4
            
 Normalization:
 
    Given the scale inconsistancies between different Google Flu Trends files, the data is normalized with respect
-   
    to the results of each file. 
 
